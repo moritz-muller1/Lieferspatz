@@ -68,7 +68,3 @@ Lieferspatz is a simplified online food and beverage delivery platform inspired 
 - Mohamed Abdelbar
 - Omar Kotb
 - Moamen Hatem
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
