@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Orders - LieferSpatz</title>
+    <link href="{{ url_for('static', filename='css/ViewOrders.css') }}" rel="stylesheet" type="text/css" />
+
+
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="{{ url_for('dashboard') }}"><img src="{{ url_for('static', filename='images/LieferSpatz.jpg') }}" alt="Logo" class="header-logo"/></a>
+        </div>
+        <h1>View Orders</h1>
+    </header>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div id="flash-messages">
+        {% for message in messages %}
+          <div class="flash-message">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+    <div class="orders-container">
+        <!-- Pending Orders Section -->
+        <section id="pending-orders">
+            <h2>Pending Orders</h2>
+            {% for order in pending_orders %}
+            <div class="order-card pending">
+                <div>Order ID: {{ order.OrderID }}</div>
+                <div>Date of submission: {{ order.SubmissionTime }}</div>
+                <div class="order-actions">
+                    <button class="view-details" onclick="window.location.href='/order_details/{{ order.OrderID }}'">Order Details</button>
+                    <form action="{{ url_for('accept_order', order_id=order.OrderID) }}" method="post">
+        <button type="submit" class="accept">Accept</button>
+    </form>
+                    <form action="{{ url_for('reject_order', order_id=order.OrderID) }}" method="post">
+        <button type="submit" class="reject">Reject</button>
+    </form>
+                </div>
+            </div>
+            {% else %}
+            <p>No Pending Orders.</p>
+            {% endfor %}
+        </section>
+        <!-- Ongoing Orders Section -->
+        <section id="ongoing-orders">
+            <h2>Ongoing Orders</h2>
+            {% for order in ongoing_orders %}
+            <div class="order-card ongoing">
+                <div>Order ID: {{ order.OrderID }}</div>
+                <div>Date of submission: {{ order.SubmissionTime }}</div>
+                <div class="order-actions">
+                    <button class="view-details" onclick="window.location.href='/order_details/{{ order.OrderID }}'">Order Details</button>
+                     <form action="{{ url_for('mark_as_delivered', order_id=order.OrderID) }}" method="post">
+        <button type="submit" class="accept">Delivered</button>
+    </form>
+                </div>
+            </div>
+            {% else %}
+            <p>No Ongoing Orders.</p>
+            {% endfor %}
+        </section>
+        <!-- Completed Orders Section -->
+        <section id="completed-orders">
+            <h2>Completed Orders</h2>
+            {% for order in completed_orders %}
+            <div class="order-card completed">
+                <div>Order ID: {{ order.OrderID }}</div>
+                <div>Date of submission: {{ order.SubmissionTime }}</div>
+                <div class="order-actions">
+                    <button class="view-details" onclick="window.location.href='/order_details/{{ order.OrderID }}'">Order Details</button>
+                </div>
+            </div>
+            {% else %}
+            <p>No Completed Orders.</p>
+            {% endfor %}
+        </section>
+    </div>
+    <script src="{{ url_for('static', filename='js/ViewOrders.js') }}"></script>
+</body>
+</html>

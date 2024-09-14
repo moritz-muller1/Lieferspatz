@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ restaurant.name }} Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Dashboard.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="{{ url_for('dashboard') }}"><img src="{{ url_for('static', filename='images/LieferSpatz.jpg') }}" alt="Logo" class="header-logo"/></a>
+        </div>
+        {% if restaurant %}
+        <h1>{{ restaurant.FirstName }} {{ restaurant.LastName }}</h1>
+        <p class="address">{{ restaurant.Address }}</p>
+        <!-- Add opening hours here -->
+        <p class="hours">Openning Hours: {{ restaurant.OpeningTime }} - {{ restaurant.ClosingTime }}</p>
+        {% else %}
+        <h1>Restaurant Not Found</h1>
+        {% endif %}
+        <div class="dropdown">
+            <button class="dropbtn">☰</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('logout') }}">Logout</a>
+            </div>
+        </div>
+    </header>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div id="flash-messages">
+        {% for message in messages %}
+          <div class="flash-message">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+    <!-- Main buttons for restaurant actions -->
+    <div class="main-buttons">
+    
+        <button onclick="window.location.href='{{ url_for('view_orders') }}'">View Orders</button>
+        <button onclick="window.location.href='{{ url_for('manage_menu') }}'">Manage Menu</button>
+        <button onclick="window.location.href='{{ url_for('manage_restaurant') }}'">Manage Restaurant</button>
+
+    </div>
+
+</body>
+</html>

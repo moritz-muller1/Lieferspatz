@@ -1,0 +1,57 @@
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color:  #FFA07A; /* The background color */
+    color: #fff; /* Text color */
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 100vh;
+    text-align: center;
+}
+
+.welcome-container .logo img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    margin-top: 30px;
+    font-size: 40px;
+    margin-bottom: 3px;
+}
+
+p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#getStartedBtn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #008080; /* Adjust button color to match your mockup */
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Add this to your CSS file */
+.fade-in {
+    opacity: 0;
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards; /* Keeps the element visible after the animation completes */
+  }
+  
+  @keyframes fadeInAnimation {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  

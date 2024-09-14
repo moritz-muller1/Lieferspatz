@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Menu Item - LieferSpatz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/AddMenuItem.css') }}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+           <img src="{{ url_for('static', filename='images/1-LieferSpatz.jpg') }}" alt="Logo" class="header-logo"/></a>
+        </div>
+        <h1>Add New Menu Item</h1>
+    </header>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div id="flash-messages">
+        {% for message in messages %}
+          <div class="flash-message">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+    <div class="form-container">
+        <form action="{{ url_for('add_menu_item') }}" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="Main Course">Main Course</option>
+                    <option value="Side Dish">Side Dish</option>
+                    <option value="Beverage">Beverage</option>
+                    <option value="Dessert">Dessert</option>
+                    <option value="Soup">Soup</option>
+                    <option value="Appetizer">Appetizer</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" step="0.01" required>
+            </div>
+            
+            <button type="submit" class="submit-btn">Add Item</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFA07A; /* This color should match your design */
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.signup-container {
+    width: 300px;
+    padding: 20px;
+    background-color: #f8f8f8; /* Adjust background if needed */
+    border: 1px solid #333; /* Border color can be adjusted */
+    border-radius: 8px;
+    text-align: center;
+}
+.signup-container h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+.signup-container form {
+    margin-bottom: 10px;
+}
+.signup-container input[type="text"],
+.signup-container input[type="password"],
+.signup-container input[type="email"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.signup-container button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #008080; /* Adjust button color to match your mockup */
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.signup-container .login {
+    color: #555;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.flash-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-radius: 4px;
+    text-align: center;
+}
+
+input[type="file"] {
+    display: inline-block;
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #555;
+}
+
+input[type="file"]::file-selector-button {
+    padding: 10px;
+    background-color:  #008080;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+input[type="file"]:hover::file-selector-button {
+    background-color: #006666;
+}
+

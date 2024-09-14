@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ManageRestaurant.css') }}" rel="stylesheet" type="text/css" />
+    <title>Manage Restaurant</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="{{ url_for('dashboard') }}">
+                <a href="{{ url_for('dashboard') }}"><img src="{{ url_for('static', filename='images/LieferSpatz.jpg') }}" alt="Logo" class="header-logo"/></a>
+            </a>
+        </div>
+        <h1>Manage Restaurant</h1>
+    </header>
+    
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div id="flash-messages">
+          {% for message in messages %}
+            <div class="flash-message">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+<div class="container">
+
+    <div class="container"> 
+    <form action="{{ url_for('update_hours', restaurant_id=restaurant_info.RestaurantID) }}" method="post">
+        <div class="form-group">
+            <label for="opening_time">Opening Hours:</label>
+            <input type="time" id="opening_time" name="opening_time" value="{{ restaurant_info.OpeningTime }}" required>
+            to
+            <input type="time" id="closing_time" name="closing_time" value="{{ restaurant_info.ClosingTime }}" required>
+        </div>
+        <button type="submit" class="btn-save">Update Hours</button>
+    </form>
+
+    <!-- Possibly other forms for managing postal codes or other settings -->
+    <div class="form-group">
+        <label>Delivery Radius (Postal Codes):</label>
+        <div id="postal-codes-list">
+            {% for code in postal_codes %}
+            <div class="postal-code-item">
+                <span class="postal-code">{{ code.Code }}</span>
+                <form method="POST" action="{{ url_for('delete_code', restaurant_id=restaurant_info.RestaurantID, code=code.Code) }}" class="delete-form">
+                    <input type="hidden" name="restaurant_id" value="{{ restaurant_info.RestaurantID }}">
+                    <input type="hidden" name="code" value="{{ code.Code }}">
+                    <button type="submit" class="btn-delete">Delete</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+        <form id="add-code-form" method="POST" action="{{ url_for('add_code', restaurant_id=restaurant_info.RestaurantID) }}">
+            <input type="text" id="new_postal_code" name="code" placeholder="Add New Postal Code" required>
+            <button type="submit" class="btn-add">Add Postal Code</button>
+        </form>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

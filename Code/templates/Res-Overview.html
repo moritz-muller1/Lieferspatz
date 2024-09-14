@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurants Overview</title>
+    <link href="{{ url_for('static', filename='css/Res-Overview.css') }}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="{{ url_for('show_restaurants') }}"><img src="{{ url_for('static', filename='images/LieferSpatz.jpg') }}" alt="Logo" class="header-logo"/></a>
+        </div>
+        <h1>Restaurants</h1>
+        <div class="dropdown">
+            <button class="dropbtn">☰</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('view_cart') }}">Cart</a>
+                <a href="{{ url_for('order_history') }}">Order History</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            </div>
+        </div>
+    </header>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div id="flash-messages">
+        {% for message in messages %}
+          <div class="flash-message">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+    <section class="restaurant-grid">
+        {% for restaurant in restaurants %}
+        <div class="restaurant-card" onclick="location.href='{{ url_for('show_menu', restaurant_id=restaurant.RestaurantID) }}'">
+            <img src="{{ url_for('static', filename='images/' + restaurant.Username + '.jpg') }}" alt="{{ restaurant.FirstName }} {{ restaurant.LastName }}" class="restaurant-card"/>
+            <div class="restaurant-info">
+                <h2>{{ restaurant.FirstName }} {{ restaurant.LastName }}</h2>
+                <p><strong>Address:</strong> {{ restaurant.Address }}</p>
+                <p><strong>PLZ:</strong> {{ restaurant.PLZ }}</p>
+                <p><strong>City:</strong> {{ restaurant.City }}</p>
+                <p>{{ restaurant.Description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+    
+    <script src="{{ url_for('static', filename='js/Res-Overview.js') }}"></script>
+    </body>
+    </html>
+    

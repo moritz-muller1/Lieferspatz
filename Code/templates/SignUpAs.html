@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to LieferSpatz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/SignUpAs.css') }}" rel="stylesheet" type="text/css" />>
+</head>
+<!-- Your existing head content -->
+
+<body>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div id="flash-messages">
+        {% for message in messages %}
+          <div class="flash-message">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+  
+    <div class="landing-container">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/1-LieferSpatz.jpg') }}" alt="Logo" class="header-logo fade-element"/></a>
+            <h1 class="fade-element">Welcome to LieferSpatz</h1>
+            <p class="fade-element">Hunger is over</p>
+        </div>
+        <div class="buttons-container">
+            <button type="button" class="get-started-btn fade-element" onclick="window.location.href='/signup_restaurant';">Sign Up as Restaurant</button>
+            <button type="button" class="get-started-btn fade-element" onclick="window.location.href='/signup';">Sign Up as Customer</button>
+        </div>
+        <div class="or-login-container">
+            <span class="or-text fade-element">OR</span>
+            <a href="{{ url_for('login') }}" class="login-button fade-element">LOG IN</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/SignUpAs.js') }}"></script>
+</body>
+
+</html>

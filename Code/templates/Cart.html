@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Cart.css') }}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="{{ url_for('show_restaurants') }}"><img src="{{ url_for('static', filename='images/LieferSpatz.jpg') }}" alt="Logo" class="header-logo"/></a>
+        </div>
+        <h1>Your Shopping Cart</h1>
+    </header>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div id="flash-messages">
+          {% for message in messages %}
+            <div class="flash-message">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <div class="cart-container">
+        {% for item in cart_items %}
+        <div class="cart-item">
+            <div class="cart-item-details">
+                <span>{{ item.Name }}</span>
+                <span>Price: ${{ item.Price }}</span>
+            </div>
+            <form action="{{ url_for('update_cart', cart_item_id=item.CartID) }}" method="post" class="quantity-form">
+                <input type="number" name="quantity" value="{{ item.Quantity }}" min="1">
+                <button type="submit" class="updateremoveBtn">Update</button>
+            </form>
+            <form action="{{ url_for('remove_from_cart', cart_item_id=item.CartID) }}" method="post" class="remove-form">
+                <button type="submit" class="updateremoveBtn">Remove</button>
+            </form>
+        </div>
+        <hr>
+        {% endfor %}
+
+        <div class="subtotal">
+            <span>Total</span>
+            <span>${{ total_price }}</span>
+        </div>
+
+        <div class="checkout-button">
+            <form action="{{ url_for('checkout') }}" method="post">
+                <button id="checkoutBtn" type="submit">Checkout</button>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/Cart.js') }}"></script>   
+</body>
+</html>

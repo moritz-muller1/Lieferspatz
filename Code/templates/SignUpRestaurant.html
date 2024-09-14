@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up Restaurant - LieferSpatz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/SignUp.css') }}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div id="flash-messages">
+          {% for message in messages %}
+            <div class="flash-message">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    <div class="signup-container">
+        <h1>LieferSpatz</h1>
+        <h2>Sign Up as a Restaurant</h2>
+        <form action="{{ url_for('signup_restaurant') }}" method="post" enctype="multipart/form-data">
+            <!-- Add the enctype attribute if you're planning to have a file upload for the picture -->
+            <input type="text" name="first_name" placeholder="First name" required>
+            <input type="text" name="last_name" placeholder="Last name" required>
+            <input type="text" name="address" placeholder="Address" required>
+            <input type="text" name="plz" placeholder="PLZ" required>
+            <input type="text" name="city" placeholder="City" required>
+            <input type="text" name="description" placeholder="Description" required>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="file" name="picture" accept="image/">
+            <!-- Optional: File input for picture -->
+            <!-- <input type="file" name="picture" accept="image/"> -->
+            <button type="submit">Sign up</button>
+        </form>
+        <div>OR</div>
+        <div class="login" onclick="window.location.href='/login';">LOG IN</div>
+        <!-- ... existing HTML ... -->
+    </div>
+</body>
+</html>

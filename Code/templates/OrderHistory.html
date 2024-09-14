@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History - LieferSpatz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/OrderHistory.css') }}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="{{ url_for('show_restaurants') }}"><img src="{{ url_for('static', filename='images/LieferSpatz.jpg') }}" alt="Logo" class="header-logo"/></a>
+        </div>
+        <h1>Order History</h1>
+    </header>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div id="flash-messages">
+        {% for message in messages %}
+          <div class="flash-message">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+    <main id="orderList">
+        {% for order in orders %}
+            <div class="order-container">
+                <div class="first-part">
+                    <div class="order-date&time">
+                        <p class="order-placed-word">ORDER PLACED</p>
+                        <p class="actual-date&time">{{ order.SubmissionTime }}</p>
+                    </div>
+
+                    <div class="OrderID">
+                        <p>Order ID: {{ order.OrderID }}</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="second-part">
+                    <div class="restaurant-name">
+                        <p class="restaurant-word">Restaurant:</p>
+                        <p class="restaurant-address">{{ order.RestaurantName }}</p>
+                    </div>
+
+                    <div class="switching-links">
+                        <a href="{{ url_for('track_order', order_id=order.OrderID) }}">Track your order</a>
+                        <a href="{{ url_for('order_details', order_id=order.OrderID) }}">View order details</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p>No orders found.</p>
+        {% endfor %}
+    </main>
+</body>
+</html>

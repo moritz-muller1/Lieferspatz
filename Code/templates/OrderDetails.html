@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Details - LieferSpatz</title>
+    <link href="{{ url_for('static', filename='css/OrderDetails.css') }}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <h1>Order Details</h1>
+    </header>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div id="flash-messages">
+          {% for message in messages %}
+            <div class="flash-message">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}    
+    <div class="order-container">
+        <section id="order-info" class="fade-in">
+            <h2>Order Information</h2>
+            <p>Order ID: {{ order_info['OrderID'] }}</p>
+<p>Customer Name: {{ order_info['CustomerName'] }}</p>
+<p>Address: {{ order_info['Address'] }}, {{ order_info['City'] }} {{ order_info['PLZ'] }}</p>
+<p>Submission Time: {{ order_info['SubmissionTime']}}</p>
+        </section>
+        <section id="items-ordered" class="fade-in">
+            <h2>Items Ordered</h2>
+            <ul>
+                {% for item in items_ordered %}
+                <li>{{ item.Name }} - {{ item.Description }} - Quantity: {{ item.Quantity }} - Price: ${{ item.Price }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section id="total" class="fade-in">
+            <h2>Total</h2>
+            <p>Total Price: ${{ total_price }}</p>
+        </section>
+    </div>
+    <script src="{{ url_for('static', filename='js/OrderDetails.js') }}"></script>
+</body>
+</html>

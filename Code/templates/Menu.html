@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu-Lieferspatz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Menu.css') }}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="{{ url_for('show_restaurants') }}"><img src="{{ url_for('static', filename='images/LieferSpatz.jpg') }}" alt="Logo" class="header-logo"/></a>
+        </div>
+        <h1>Menu</h1>
+    </header>
+
+    <!-- Flash messages section -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div id="flash-messages">
+          {% for message in messages %}
+            <div class="flash-message">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <section class="menu-items">
+        {% for item in menu_items %}
+            <div class="menu-item">
+                <!-- Use the category to generate the image filename -->
+                {% set image_file = 'images/' + item.Category.replace(' ', '_') + '.jpg' %}
+                <img src="{{ url_for('static', filename=image_file) }}" alt="{{ item.Name }}" class="image">
+                <div class="menu-info">
+                    <h2>{{ item.Name }}<h2></h2>{{ item.Description }}<h2><h2>Price: $ {{ item.Price }}</h2>
+                    <form action="{{ url_for('add_to_cart', restaurant_id=restaurant_id, menu_item_id=item.MenuItemID) }}" method="post">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+    
+
+    <div class="checkout-container">
+        <form action="{{ url_for('view_cart') }}" method="get">
+            <button type="submit" class="checkout-button">Check Out</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/Menu.js') }}"></script>    
+</body>
+</html>

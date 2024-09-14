@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+header {
+    background: #FFA07A;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    display: center;
+}
+
+.header-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; /* Center the title */
+    position: relative;
+}
+
+section{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+    padding: 10px;
+}
+
+.restaurant-card {
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 400px;
+    cursor: pointer;
+}
+
+.restaurant-card img {
+    width: 100%;
+    height: 65%;
+    display: block;  /* Remove any extra space below the image */
+    
+}
+
+.restaurant-info {
+    padding: 10px;
+    background: #005152;
+    color: white;
+}
+
+.restaurant-info:hover{
+    background-color: gray;
+}
+
+.restaurant-info h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.restaurant-info h2 a{
+    margin-top: 10px;
+    text-decoration: none;
+    color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.restaurant-info p {
+    font-size: 16px;
+}
+
+
+
+.dropdown {
+    top: 0;
+    right: 0;
+    margin-right: 20px;
+    margin-top: 10px;
+    position: absolute;
+}
+
+.dropbtn {
+    background-color: #FFA07A;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    right: 0; /* Adjusted to move the dropdown content to the left */
+  }
+  
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: gray}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #fc7a47;
+}
+
+.logo-container {
+    float: inline-start; /* Aligns the logo to the left */
+    margin-right: 10px; /* Adds some space between the logo and the header title */
+
+}
+
+.header-logo {
+    height: 50px; /* Adjust the size as needed */
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.restaurant-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .fade-in {
+    animation: fadeIn 1s ease forwards;
+  }
+  
+  .flash-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-radius: 4px;
+    text-align: center;
+}
+

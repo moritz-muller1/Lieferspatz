@@ -1,0 +1,82 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.landing-container {
+    height: 100%;
+    background-color: #FFA07A;
+    text-align: center;
+    padding-top: 10%;
+}
+
+.logo-container img {
+    max-width: 250px; /* Adjust as needed */
+}
+
+.logo-container h1 {
+    margin: 20px 0;
+    color: #ffffff;
+}
+
+.logo-container p {
+    color: #ffffff;
+    margin-bottom: 50px;
+}
+
+.buttons-container button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #008080;; /* Adjust the color as you like */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons-container button:hover {
+    background-color: #008080;; /* Darker shade for hover effect */
+}
+
+.or-login-container {
+    text-align: center; /* Center aligns the content */
+    margin-top: 20px; /* Adjust as necessary for spacing */
+}
+
+.or-text {
+    display: block; /* Ensures 'OR' is on its own line */
+    margin-bottom: 10px; /* Space between 'OR' and the button */
+    font-size: 18px; /* Adjust as necessary */
+    color:white; /* Adjust as necessary */
+}
+
+.login-button {
+    display: inline-block; /* Allows for text alignment and margin */
+    color: white;
+    padding: 10px 30px;
+}
+
+/* Add this to your SignUpAs.css file */
+.fade-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .fade-element.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+
+  .flash-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-radius: 4px;
+    text-align: center;
+}
+

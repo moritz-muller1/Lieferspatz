@@ -1,0 +1,142 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+header {
+    background: #FFA07A;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    display: center;
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust the minmax() to set a minimum and a maximum width for the items */
+    gap: 15px; /* This will provide space between the grid items */
+    padding: 15px;
+    justify-items: center; /* This will center the grid items horizontally */
+}
+
+.menu-item {
+    background-color: #FFF;
+    border: 1px solid #ddd; /* Lighter border color for subtlety */
+    border-radius: 8px; /* Rounded corners for aesthetics */
+    padding: 20px; /* Consistent padding */
+    display: flex; /* Flexbox layout for the contents */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* A subtle shadow for depth */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.menu-item img {
+    width: 100%; /* Full width of the container */
+    height: auto; /* Keep the aspect ratio of the image */
+    border-radius: 8px; /* Consistent with the container border radius */
+    margin-bottom: 10px; /* Space between the image and the text */
+}
+
+.menu-item h2 {
+    font-size: 18px; /* Adjust font size if needed */
+    color: #333; /* Darker text color for better readability */
+    margin: 10px 0; /* Space above and below the title */
+}
+
+.menu-item p {
+    color: #666; /* Slightly lighter text color for descriptions and prices */
+    margin-bottom: 15px; /* Space below paragraphs */
+        opacity: 0;
+}
+
+  
+.menu-info button {
+    background-color: #008080; /* Color to match the theme */
+    color: #FFF;
+    border: none;
+    padding: 10px 20px; /* Larger padding for a bigger button */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+    margin-top: 10px; /* Space above the button */
+}
+
+.menu-info button:hover {
+    background-color: #006666; /* Darker color on hover for interaction feedback */
+}
+
+.add-new-item {
+    display: flex;
+    justify-content: center; /* This centers the button horizontally */
+    margin-top: 20px; /* Add space above the button if needed */
+}
+
+.add-new-item button {
+    align-items: center;
+    background-color: #008080; /* Color to match the theme */
+    color: #FFF;
+    border: none;
+    padding: 10px 20px; /* Larger padding for a bigger button */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+    margin-top: 10px; /* Space above the button */
+}
+
+.add-new-item button:hover {
+    background-color: #006666; /* Darker color on hover for interaction feedback */
+}
+
+.checkout-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 25vh; /* Use the full viewport height */
+}
+
+.checkout-button {
+    background-color: #008080; /* Your desired button color */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px; /* Smaller padding */
+    font-size: 1em; /* Adjust font size as needed */
+}
+
+/* Remove the width and margin-top properties if you're using flex to center */
+
+
+.checkout-button:hover {
+    background-color: #006666;
+}
+
+.logo-container {
+    float: inline-start; /* Aligns the logo to the left */
+    margin-right: 10px; /* Adds some space between the logo and the header title */
+
+}
+
+.header-logo {
+    height: 50px; /* Adjust the size as needed */
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.flash-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-radius: 4px;
+    text-align: center;
+}
+

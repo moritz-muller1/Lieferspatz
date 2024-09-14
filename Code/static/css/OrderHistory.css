@@ -1,0 +1,110 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+header {
+    background-color: #008080;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    display: center;
+    border: 1px solid black;
+    width: 100%;
+}
+    
+    body {
+    background: #FFA07A;
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.logo-container {
+    float: inline-start; /* Aligns the logo to the left */
+    margin-right: 10px; /* Adds some space between the logo and the header title */
+    margin-bottom: 10px;
+
+}
+
+.header-logo {
+    height: 50px; /* Adjust the size as needed */
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+/* Adjust the .dropdown class if necessary to align with the new layout */
+
+
+main {
+    padding: 20px;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.order {
+    background-color: #EEE;
+    border: 1px solid #CCC;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.order-container{
+    padding: 10px;
+    border: 1px solid black;
+    background-color: white;
+    margin-bottom: 20px;
+    width:70%;
+    
+
+}
+
+.first-part{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bolder;
+    margin-top: 10px;
+
+}
+
+.second-part{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+
+.switching-links{
+    display: flex;
+    flex-direction: column;
+}
+
+hr{
+    color:50px solid black  ;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.flash-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-radius: 4px;
+    text-align: center;
+}
+

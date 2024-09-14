@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Order</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/TrackingOrder.css') }}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="{{ url_for('show_restaurants') }}"><img src="{{ url_for('static', filename='images/LieferSpatz.jpg') }}" alt="Logo" class="header-logo"/></a>
+        </div>
+        <h1>Track Your Order </h1>
+    </header>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div id="flash-messages">
+          {% for message in messages %}
+            <div class="flash-message">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    <div class="order-container">
+        <div class="order-item">
+            <div class="order-title">Order Status for Order #{{ order.OrderID }}</div>
+            <div class="order-id">Placed on: {{ order.SubmissionTime.strftime('%d %B %Y, %H:%M O\'Clock') }}</div>
+            <div class="status-bar">
+                <div class="status-fill {{ order.Status | lower }}" id="statusFill"></div>
+            </div>
+            <div class="order-status">Status: {{ order.Status }}</div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/TrackingOrder.js') }}"></script>
+</body>
+</html>

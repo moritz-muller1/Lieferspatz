@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Menu - LieferSpatz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Menu.css') }}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="{{ url_for('dashboard') }}"><img src="{{ url_for('static', filename='images/LieferSpatz.jpg') }}" alt="Logo" class="header-logo"/></a>
+        </div>
+        <h1>Manage Menu</h1>
+    </header>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div id="flash-messages">
+          {% for message in messages %}
+            <div class="flash-message">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <section class="menu-items">
+        {% for item in menu_items %}
+            <div class="menu-info">
+                <!-- Existing item display code -->
+                <div class="menu-item">
+                    {% set image_file = 'images/' + item.Category.replace(' ', '_') + '.jpg' %}
+                    <img src="{{ url_for('static', filename=image_file) }}" alt="{{ item.Name }}" class="image">
+                    <h2>{{ item.Name }}</h2><h5>{{ item.Description }}</h5><h2>Price: $ {{ item.Price }}</h2>
+                    <!-- Edit button -->
+                    <form action="{{ url_for('edit_menu_item', item_id=item.MenuItemID) }}" method="post">
+                        <button type="submit">Edit</button>
+                    </form>
+                    <!-- Delete button -->
+                    <form action="{{ url_for('delete_menu_item', item_id=item.MenuItemID) }}" method="post">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+    <!-- Add new item button -->
+    <div class="add-new-item">
+        <button onclick="window.location.href='/add_menu_item'">Add New Item</button>
+    </div>
+    <script src="{{ url_for('static', filename='js/Menu.js') }}"></script>  
+</body>
+</html>

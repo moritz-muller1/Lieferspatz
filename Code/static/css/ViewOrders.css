@@ -1,0 +1,116 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+header {
+    background: #FFA07A;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    display: center;
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+
+.orders-container {
+    margin: 20px;
+}
+
+.order-card {
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-card div {
+    margin-right: 10px;
+}
+
+.order-actions {
+    display: flex;
+    align-items: center;
+}
+
+button.accept, 
+button.reject {
+    padding: 5px 10px;
+    margin-left: 10px; /* Adjust as needed for spacing */
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button.accept {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+button.reject {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+
+/* Add styles for section headers */
+#pending-orders h2,
+#ongoing-orders h2,
+#completed-orders h2 {
+    background-color: #005152;;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Add padding to the sections for better spacing */
+section {
+    padding-bottom: 20px;
+}
+
+button.view-details {
+    padding: 5px 10px;
+    margin-left: 10px; /* Adjust as needed for spacing */
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #008CBA; /* Blue */
+    color: white;
+}
+
+.logo-container {
+    float: inline-start; /* Aligns the logo to the left */
+    margin-right: 10px; /* Adds some space between the logo and the header title */
+
+}
+
+.header-logo {
+    height: 50px; /* Adjust the size as needed */
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.order-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.flash-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-radius: 4px;
+    text-align: center;
+}
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Lieferspatz</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/HomePage.css') }}" rel="stylesheet" type="text/css" />
+  <script src="https://kit.fontawesome.com/a8a84ce2df.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<div class="welcome-container">
+    
+    <div class="logo">
+        <img id="Lieferspatz" src="{{ url_for('static', filename='images/1-LieferSpatz.jpg') }}"alt="Lieferspatz">
+    </div>
+
+    <h1 id="Welcome_to_Lieferspatz" class="fade-in">Welcome to Lieferspatz</h1>
+    <h2 id="Hunger_is_over" class="fade-in">Hunger is over</h2>
+
+    
+
+    <button type="button" id="getStartedBtn" class="get-started-btn fade-in" onclick="window.location.href='/signup_as';">Get started</button>
+    </a>
+
+</div>
+<script src="{{ url_for('static', filename='js/HomePage.js') }}"></script>    
+</body>
+</html>
