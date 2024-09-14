@@ -1,3 +1,5 @@
+![Homepage Screenshot](static/images/HOMEPAGE.png)
+
 # Lieferspatz
 
 ## Project Overview
