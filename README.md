@@ -1,4 +1,4 @@
-![Homepage Screenshot](static/images/HOMEPAGE.png)
+![Homepage Screenshot](Code/static/images/HOMEPAGE.png)
 
 # Lieferspatz
 
