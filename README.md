@@ -1,4 +1,5 @@
-![Homepage Screenshot](Code/static/images/HOMEPAGE.png)
+<img src="Code/static/images/HOMEPAGE.png" alt="Homepage Screenshot" width="400"/>
+
 
 # Lieferspatz
 
