@@ -60,10 +60,10 @@ Lieferspatz is a simplified online food and beverage delivery platform inspired 
 - **Database**: SQLite 3.44.0
 
 ## Contributors
-- Name 1
-- Name 2
-- Name 3
-- Name 4
+- Mohammad KANDAKJI
+- Mohamed Abdelbar
+- Omar Kotb
+- Moamen Hatem
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
