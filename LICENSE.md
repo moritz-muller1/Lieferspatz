@@ -1,4 +1,3 @@
-MIT License
 
 ```markdown
 Copyright (c) [2024] [MOHAMMAD KANDAKJI]
