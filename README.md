@@ -4,6 +4,8 @@
 <div align="center">
 <img src="Code/static/images/HOMEPAGE.png" alt="Homepage Screenshot" width="400"/>
 </div>
+
+
 ## Project Overview
 Lieferspatz is a simplified online food and beverage delivery platform inspired by services like Lieferando and Wolt. The platform allows users to order food from various nearby restaurants, with functionalities for restaurant registration, menu management, order processing, and viewing order status.
 
