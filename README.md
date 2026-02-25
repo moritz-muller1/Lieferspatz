@@ -34,24 +34,3 @@
     http://127.0.0.1:5000
     ```
 
-## Usage
-1. **For Restaurants**:
-    - Register an account with the restaurant's name, address, and operating hours.
-    - Add, edit, or delete items from the menu.
-    - Manage incoming orders, accept or reject orders, and view order history.
-    
-2. **For Customers**:
-    - Create an account with name, address, and postal code.
-    - Browse restaurants that deliver to your postal code.
-    - Place an order and track its status from "in preparation" to "completed".
-
-## Project Details
-- **Backend**: Flask, Python, SQLite
-- **Frontend**: HTML, CSS, JavaScript
-- **Database**: SQLite 3.44.0
-
-## Contributors
-- Mohammad KANDAKJI
-- Mohamed Abdelbar
-- Omar Kotb
-- Moamen Hatem
