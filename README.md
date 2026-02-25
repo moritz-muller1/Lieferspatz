@@ -1,5 +1,6 @@
 
 # Lieferspatz
+Lieferspatz is a simplified full-stack food delivery platform inspired by services like Lieferando and Wolt.
 
 ## How to Run the Project
 
