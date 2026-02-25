@@ -1,21 +1,6 @@
 
 # Lieferspatz
 
-<div align="center">
-<img src="Code/static/images/HOMEPAGE.png" alt="Homepage Screenshot" width="400"/>
-</div>
-
-
-## Project Overview
-Lieferspatz is a simplified online food and beverage delivery platform inspired by services like Lieferando and Wolt. The platform allows users to order food from various nearby restaurants, with functionalities for restaurant registration, menu management, order processing, and viewing order status.
-
-## Features
-- **Restaurant Registration**: Restaurants can sign up, manage their menu, set delivery zones (by postal code), and update operating hours.
-- **Customer Interaction**: Customers can browse available restaurants, view menus, place orders, and track order statuses.
-- **Order Management**: Restaurants can accept or reject orders, track order history, and manage ongoing and completed orders.
-- **SQLite Database**: Handles restaurant, customer, and order information with efficient data management.
-
-
 ## How to Run the Project
 
 ### Prerequisites
