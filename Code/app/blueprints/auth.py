@@ -4,7 +4,7 @@ from flask import (
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from app.db import get_db_connection
+from app.db import DBError, get_db_connection
 from app.storage import upload_image
 
 bp = Blueprint('auth', __name__)
@@ -35,14 +35,19 @@ def signup():
             flash('Username already exists')
             return redirect(url_for('auth.signup'))
 
-        conn.execute(
-            'INSERT INTO "Customer" ("Username", "FirstName", "LastName", "Address", "City", "PLZ")'
-            ' VALUES (%s, %s, %s, %s, %s, %s)',
-            (username, first_name, last_name, address, city, plz))
-        conn.execute(
-            'INSERT INTO "Account" ("Username", "Password", "UserType") VALUES (%s, %s, %s)',
-            (username, hashed_password, 'Customer'))
-        conn.commit()
+        try:
+            conn.execute(
+                'INSERT INTO "Account" ("Username", "Password", "UserType") VALUES (%s, %s, %s)',
+                (username, hashed_password, 'Customer'))
+            conn.execute(
+                'INSERT INTO "Customer" ("Username", "FirstName", "LastName", "Address", "City", "PLZ")'
+                ' VALUES (%s, %s, %s, %s, %s, %s)',
+                (username, first_name, last_name, address, city, plz))
+            conn.commit()
+        except DBError:
+            conn.rollback()
+            flash('Could not create the account. Please try again.', 'error')
+            return redirect(url_for('auth.signup'))
 
         flash('Account created successfully!', 'success')
         return redirect(url_for('auth.login'))
@@ -74,14 +79,19 @@ def signup_restaurant():
             flash('Username already exists', 'error')
             return redirect(url_for('auth.login'))
 
-        conn.execute(
-            'INSERT INTO "Restaurant" ("Username", "FirstName", "LastName", "Address", "PLZ", "City", "Description", "Picture") '
-            'VALUES (%s, %s, %s, %s, %s, %s, %s, %s)',
-            (username, first_name, last_name, address, plz, city, description, picture_url))
-        conn.execute(
-            'INSERT INTO "Account" ("Username", "Password", "UserType") VALUES (%s, %s, %s)',
-            (username, hashed_password, 'Restaurant'))
-        conn.commit()
+        try:
+            conn.execute(
+                'INSERT INTO "Account" ("Username", "Password", "UserType") VALUES (%s, %s, %s)',
+                (username, hashed_password, 'Restaurant'))
+            conn.execute(
+                'INSERT INTO "Restaurant" ("Username", "FirstName", "LastName", "Address", "PLZ", "City", "Description", "Picture") '
+                'VALUES (%s, %s, %s, %s, %s, %s, %s, %s)',
+                (username, first_name, last_name, address, plz, city, description, picture_url))
+            conn.commit()
+        except DBError:
+            conn.rollback()
+            flash('Could not create the restaurant account. Please try again.', 'error')
+            return redirect(url_for('auth.signup_restaurant'))
 
         flash('Restaurant account created successfully!', 'success')
         return redirect(url_for('auth.login'))
