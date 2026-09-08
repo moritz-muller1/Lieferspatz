@@ -18,7 +18,7 @@
     <div class="signup-container">
         <h1>LieferSpatz</h1>
         <h2>Sign Up as a Restaurant</h2>
-        <form action="{{ url_for('signup_restaurant') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ url_for('auth.signup_restaurant') }}" method="post" enctype="multipart/form-data">
             <!-- Add the enctype attribute if you're planning to have a file upload for the picture -->
             <input type="text" name="first_name" placeholder="First name" required>
             <input type="text" name="last_name" placeholder="Last name" required>

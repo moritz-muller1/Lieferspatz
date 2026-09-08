@@ -1,0 +1,20 @@
+# Render blueprint. In the Render dashboard: New → Blueprint → point at this repo.
+# Set DATABASE_URL, SECRET_KEY and CLOUDINARY_URL in the service's Environment tab
+# (they are marked sync:false so they are not stored in git).
+services:
+  - type: web
+    name: lieferspatz
+    runtime: python
+    rootDir: Code
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn run:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+      - key: CLOUDINARY_URL
+        sync: false
